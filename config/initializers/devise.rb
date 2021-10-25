@@ -3,6 +3,7 @@ Devise.setup do |config|
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
   google_client_id = ENV['GOOGLE_CLIENT_ID']
   google_client_secret = ENV['GOOGLE_CLIENT_SECRET']
+  require "omniauth-google-oauth2"
   config.omniauth :google_oauth2, google_client_id, google_client_secret, scope: 'userinfo.email,userinfo.profile'
   require 'devise/orm/active_record'
   config.case_insensitive_keys = [:email]
