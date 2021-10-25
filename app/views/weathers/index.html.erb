@@ -1,0 +1,25 @@
+<br>
+
+<div class="btn-new">
+  <%= link_to('Dodaj nowe miasto', new_weather_path, class: 'btn btn-outline-info') %>
+</div>
+
+<% @weathers.each do |weather| %>
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="card w-75">
+        <div class="card-body">
+          <p class="card-text-date"><%= Weather.date_format(weather.updated_at) %></p>
+          <p class="card-text-data"><%= image_tag("logo1.png", width: 60) %>  <%= weather.city %>  <%= Weather.to_celcius(weather.temp) %><span>&#176;</span></p>
+          <p class="card-text"><%= weather.note %></p>
+          <% if current_user %>
+            <%= link_to("Edytuj", edit_weather_path(weather), class: "btn btn-outline-secondary") %>
+            <%= link_to(weather, method: :delete, class: "btn btn-outline-success") do %>
+              Usuń
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

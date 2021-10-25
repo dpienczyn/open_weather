@@ -1,0 +1,22 @@
+<%= form_with(model: weather) do |form| %>
+  <% if weather.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(weather.errors.count, "error") %> prohibited this weather from being saved:</h2>
+
+      <ul>
+        <% weather.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= form.text_field :city, class: "form-control col-sm-3", placeholder: "Jaka miejscowość?" %>
+  </div>
+  <div class="form-group">
+    <%= form.text_area :note, class: "form-control col-sm-3", placeholder: "Notatka", rows: "3" %>
+  </div>
+  <div class="btn-sumbit">
+    <%= form.submit :Zapisz, class: "btn btn-outline-info col-sm-3" %>
+  </div>
+<% end %>

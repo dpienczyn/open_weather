@@ -1,0 +1,6 @@
+<% if current_user %>
+  <div class="jumbotron">
+    <h1 class="display-4">Witaj, <%= current_user.email %>!</h1>
+    <p class="lead">Wprowadź nazwę miasta i dowiedz się jaka jest tam aktualnie pogoda!</p>
+  </div>
+<% end %>
